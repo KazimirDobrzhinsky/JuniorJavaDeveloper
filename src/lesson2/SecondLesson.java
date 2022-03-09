@@ -7,7 +7,7 @@ public class SecondLesson {
     public static void main(String[] args) {
         // логические операторы
         // && оператор и
-        /* int x = 50, y = 100, z = 91;
+        int x = 50, y = 100, z = 91;
         boolean res = (x % 2 == 0) && (y % 2 == 0) && (z % 2 == 0);
         //              true && true && false
         //              true && false
@@ -77,7 +77,7 @@ public class SecondLesson {
             default:
                 System.out.println("Ошибка");
         }
-*/
+
         int sum = 1000, saleCode = 4525;
         switch (saleCode) {
             case 4525:

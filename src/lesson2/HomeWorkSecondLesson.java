@@ -22,7 +22,7 @@ public class HomeWorkSecondLesson {
         switch (z) {
             case 3:
                 res = x + y;
-                System.out.println(res);
+                System.out.println(res); // Вывод лучше выводить за пределы switch, чтобы избежать дублирования кода
                 break;
             case 5:
                 res = x - y;
@@ -33,7 +33,7 @@ public class HomeWorkSecondLesson {
                 System.out.println(res);
                 break;
             case 9:
-                res = x / y;
+                res = x / y; // Здесь нужно было проверять деление на ноль
                 System.out.println(res);
                 break;
             default:
