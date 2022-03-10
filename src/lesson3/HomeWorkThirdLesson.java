@@ -76,11 +76,10 @@ public class HomeWorkThirdLesson {
             reply = scanner.nextInt();
             if (reply == 1) {
                 firstElement = mid;
-                mid = (firstElement + lastElement) / 2;
             } else {
                 lastElement = mid;
-                mid = (firstElement + lastElement) / 2;
             }
+            mid = (firstElement + lastElement) / 2;
             System.out.println("Число меньше - " + mid + "?");
             reply = scanner.nextInt();
             if (reply == 1) {
