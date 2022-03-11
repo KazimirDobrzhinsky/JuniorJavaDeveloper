@@ -19,7 +19,7 @@ public class HomeWorkThirdLesson {
         int num = scanner.nextInt();
         int sum = 0;
         if (num > 0) {
-            while ((num > 0) || (num % 10 != 0)) {
+            while (num > 0) {
                 sum = sum + num % 10;
                 num = num / 10;
             }
@@ -48,9 +48,7 @@ public class HomeWorkThirdLesson {
                 System.out.println("Загаданное число больше");
                 continue;
             }
-            if (guess > rand) {
-                System.out.println("Загаданное число меньше");
-            }
+            System.out.println("Загаданное число меньше");
 
         }
 
