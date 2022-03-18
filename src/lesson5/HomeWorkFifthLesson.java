@@ -26,11 +26,11 @@ public class HomeWorkFifthLesson {
                 return;
             }
             for (int j = 0; j < i; j++) {
-               while ((Arr1[j]).equals(param)) {
+               while ((Arr1[j]).equals(param)) { // equals ignore case
                    System.out.println("Такое словое уже есть в массиве, введите другое");
                    param = scanner1.nextLine();
                    j = 0;
-                   if (param.equals("exit")) {
+                   if (param.equals("exit")) { // equals ignore case
                        System.out.println("Выход из программы");
                        System.out.println(Arrays.toString(Arr1));
                        return;
@@ -62,7 +62,7 @@ public class HomeWorkFifthLesson {
         String[] sentenceArr = sentence.split(" ");
         int maxIndex = 0;
 
-        for (int i = 0, max = 0; i < sentenceArr.length; i++) {
+        for (int i = 0, max = 0; i < sentenceArr.length; i++) { // надо было использоваьб foreaach
             if (max < sentenceArr[i].length()) {
                 max = sentenceArr[i].length();
                 maxIndex = i;
