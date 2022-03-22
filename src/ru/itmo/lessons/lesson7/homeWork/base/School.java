@@ -29,11 +29,9 @@ public class School {
     /*public boolean getStatusOfWork() {
         return statusOfWork;
     }
-
     public String getSchoolDirector() {
         return schoolDirector.name;
     }
-
     void setStatusOfWork(boolean statusOfWork) {
         this.statusOfWork = statusOfWork;
     }*/
