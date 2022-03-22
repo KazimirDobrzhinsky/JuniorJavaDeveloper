@@ -3,71 +3,71 @@ package ru.itmo.lessons.lesson6.homeworkTask03.animals;
 import ru.itmo.lessons.lesson6.books.Book;
 
 public class Cat {
-    private String Name;
-    private int Speed;
-    private int Weight;
+    private String name;
+    private int speed;
+    private int weight;
     private Mouse[] catMouse = new Mouse[100];
 
-    public void setName(String name) {
+    public Cat(String name, int speed, int weight) {
         if (name == null || name.length() < 2 || name.startsWith(" ") || name.endsWith(" "))
-            throw new IllegalArgumentException("Имя кота не может быть null или короче 2х символов или начинатся/заканчиваться пробелом");
-        this.Name = name;
-    }
-
-    public void setSpeed(int speed) {
-        if (speed <= 0)
-            throw new IllegalArgumentException("Скорость не может быть меньше или равно нулю");
-        this.Speed = speed;
-    }
-
-    public void setWeight(int weight) {
-        if (weight <= 0)
-            throw new IllegalArgumentException("Вес не может быть меньше или равно нулю");
-        this.Weight = weight;
-    }
-
-    public String getName() {
-        return Name;
+            throw new IllegalArgumentException("Название продуктов не может быть null или короче 2х символов или начинатся/заканчиваться пробелом");
+        if (speed <= 0 || weight <= 0) {
+            throw new IllegalArgumentException("Вес и скорость не могут быть меньше 0");
+        }
+        this.name = name;
+        this.speed = speed;
+        this.weight = weight;
     }
 
     public int getSpeed() {
-        return Speed;
+        return speed;
     }
 
     public int getWeight() {
-        return Weight;
+        return weight;
     }
 
-    public Cat(String name, int speed, int weight) {
-        setName(name);
-        setSpeed(speed);
-        setWeight(weight);
+    public String getName() {
+        return name;
     }
 
-    public void catchMouse(Cat cat, Mouse mouse) {
-        if (cat.getSpeed() > mouse.getMouseSpeed()) {
-            for (int i = 0; i < catMouse.length; i++) {
-                if (catMouse[i] == null) {
-                    catMouse[i] = mouse;
-                    return;
-                }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void catchMouse(Mouse mouse) {
+        if (mouse.getMouseStatusCaught()) {
+            System.out.println("Эта мыш уже поймана " + mouse.getWhoCaught().getName());
+            return;
+        }
+        if (mouse.getSpeed() > this.getSpeed()) {
+            System.out.println("Мыш убежала");
+            return;
+        }
+        for (int i = 0; i < this.catMouse.length; i++) {
+            if (this.catMouse[i] == null) {
+                this.catMouse[i] = mouse;
+                mouse.setWhoCaught(this);
+                mouse.setMouseStatusCaught(true);
+                System.out.println("Мыш поймана, теперь у кота " + this.getName()+ " имеется " + (i + 1) + " мышей");
+                return;
             }
         }
+        System.out.println("Кот уже наловил 100 мышей");
     }
 
-    public void fightCat(Cat cat1, Cat cat2) {
-        if (cat1.getWeight() > cat2.getWeight()) {
-            for (int i = 0; i < cat2.catMouse.length; i++) {
-                if (cat1.getSpeed() > cat2.catMouse[i].getMouseSpeed()) {
-                    for (int j = 0; j < cat1.catMouse.length; j++) {
-                        if (cat1.catMouse[j] == null) {
-                            cat1.catMouse[j] = cat2.catMouse[i];
-                            return;
-                        }
-                    }
-                }
-            }
+    public void catVsCat(Cat secondCat) {
+        if (this.getWeight() < secondCat.getWeight()) {
+            System.out.println("Маленький еще");
+            return;
         }
+        for (int i = 0; i < secondCat.catMouse.length; i++) {
+            if (secondCat.catMouse[i] == null) continue;
+            secondCat.catMouse[i].setWhoCaught(null);
+            secondCat.catMouse[i].setMouseStatusCaught(false);
+            this.catchMouse(secondCat.catMouse[i]);
+        }
+
     }
 
 }

@@ -1,36 +1,40 @@
 package ru.itmo.lessons.lesson6.homeworkTask01;
 
-import ru.itmo.lessons.lesson6.homeworkTask01.products.Product;
-import ru.itmo.lessons.lesson6.homeworkTask01.products.MyProduct;
+import ru.itmo.lessons.lesson6.homeworkTask01.base.Climber;
+import ru.itmo.lessons.lesson6.homeworkTask01.base.Group;
+import ru.itmo.lessons.lesson6.homeworkTask01.base.Mountain;
 
 public class Application {
 
     public static void main(String[] args) {
+        Mountain mountain1 = new Mountain("Эверест", "Непал", 8849);
+        Mountain mountain2 = new Mountain("Монблан", "Франция", 4810);
+        Mountain mountain3 = new Mountain("Эльбрус", "Россия", 5642);
 
+        Group group1 = new Group(mountain1,3);
+        Group group2 = new Group(mountain2,3);
+        Group group3 = new Group(mountain3,3);
 
-        Product product1 = new Product("Sugar", 10, 10, 10, 1000);
-        Product product2 = new Product("Wine");
-        product2.setProteinAmount(103);
-        product2.setFatAmount(100);
-        product2.setCarbonAmount(6);
-        product2.setCaloriesAmount(78);
-        Product product3 = new Product("Sushi", 9, 5, 10, 10);
-        Product product4 = new Product("Pizza", 1.056, 1.06, 10, 1.066);
+        Climber climber1 = new Climber("Иван 1", "Улица строителей");
+        Climber climber2 = new Climber("Иван 2", "Улица строителей");
+        Climber climber3 = new Climber("Иван 3", "Улица строителей");
+        Climber climber4 = new Climber("Иван 4", "Улица строителей");
+        Climber climber5 = new Climber("Иван 5", "Улица строителей");
+        Climber climber6 = new Climber("Иван 6", "Улица строителей");
+        Climber climber7 = new Climber("Иван 7", "Улица строителей");
 
-        MyProduct myProduct = new MyProduct();
+        group1.addClimber(climber1);
+        group1.addClimber(climber2);
+        group1.addClimber(climber3);
 
+        group2.addClimber(climber4);
+        group2.addClimber(climber5);
 
-        myProduct.addProduct(product1);
-        myProduct.addProduct(product2);
-        myProduct.addProduct(product3);
-        myProduct.addProduct(product4);
+        group3.addClimber(climber6);
+        group3.addClimber(climber7);
 
-        myProduct.printProductListNames();
-
-
-
-
-
+        group1.printGroupStatus();
+        group2.printGroupStatus();
+        group3.printGroupStatus();
     }
-
 }

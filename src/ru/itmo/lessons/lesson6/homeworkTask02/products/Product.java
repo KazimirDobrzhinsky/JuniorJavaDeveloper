@@ -1,6 +1,6 @@
-package ru.itmo.lessons.lesson6.homeworkTask01.products;
+package ru.itmo.lessons.lesson6.homeworkTask02.products;
 
-public class Product<productName> {
+public class Product {
     private String productName;
     private double proteinAmount;
     private double fatAmount;

@@ -2,7 +2,7 @@ package ru.itmo.lessons.lesson7.homeWork.base;
 
 public class School {
     // private boolean statusOfWork;
-    private String schoolName;
+    private final String schoolName;
     private Director schoolDirector;
     private Pupil[] schoolPupils = new Pupil[15];
     private Teacher[] schoolTeachers = new Teacher[5];
@@ -45,6 +45,7 @@ public class School {
                 for (Pupil pupil : schoolPupils) {
                     if (pupil != null) {
                         teacher.toTeach(pupil);
+                        System.out.println(teacher.getName() + " учит " + pupil.getName() + " предмету " + teacher.getTeachSubject());
                     }
                 }
             }

@@ -20,10 +20,7 @@ public class Teacher  extends Person {
     }
 
     public void toTeach(Pupil pupil) {
-        if (this.teachSubject.equalsIgnoreCase(pupil.getStudySubject())) {
-            pupil.setStudySubjectLevel(pupil.getStudySubjectLevel() + (int) (Math.random() * (pupil.getStudySubjectLevel() + 1)));
-        }
-
+        pupil.toStudy(this);
     }
 
     public String getTeachSubject() {
