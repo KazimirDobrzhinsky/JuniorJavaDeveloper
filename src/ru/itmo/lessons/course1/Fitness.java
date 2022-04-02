@@ -41,7 +41,7 @@ public class Fitness {
                 break;
             }
         }
-        System.out.println("Клиент " + subscription.getClient().getSurname() + " " + subscription.getClient().getName() + " зарегистрирован в зоне:" + zone.returnRussianNameOfZone());
+        System.out.println("Клиент " + subscription.getClient().getSurname() + " " + subscription.getClient().getName() + " зарегистрирован в зоне:" + zone.getRussianNameOfZone());
         System.out.println("Время посещения: " + LocalDateTime.now());
     }
 
