@@ -161,7 +161,7 @@ public class MapTask {
 
         mostFrequentWordsList.sort((c1,c2) -> (int) c2.getValue() - c1.getValue());
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i <= 9; i++) {
             System.out.println(mostFrequentWordsList.get(i));
         }
 
