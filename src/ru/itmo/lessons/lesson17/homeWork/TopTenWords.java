@@ -1,8 +1,10 @@
 package ru.itmo.lessons.lesson17.homeWork;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class TopTenWords {
@@ -25,7 +27,7 @@ public class TopTenWords {
     }
 
     public static void topTenWords(String text) {
-        Map<String, Long> mostFrequentWords = new HashMap<>();
+        /*Map<String, Long> mostFrequentWords = new HashMap<>();
         String[] subStr;
         subStr = text.split(" ");
         long oldValue;
@@ -44,7 +46,20 @@ public class TopTenWords {
         Map<String, Long> sortedMap = mostFrequentWords.entrySet().stream()
                 .sorted((m1, m2) -> m2.getValue().compareTo(m1.getValue())).limit(10).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue));
 
-        System.out.println(sortedMap);
+        System.out.println(sortedMap);*/
+
+        Map<String, Long> map = Arrays.stream(text.split(" "))
+                .collect(Collectors
+                        .groupingBy(
+                                Function.identity(),
+                                Collectors.counting()))
+                .entrySet()
+                .stream()
+                .sorted((m1, m2) -> m2.getValue().compareTo(m1.getValue()))
+                .limit(10)
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue));
 
 
     }
