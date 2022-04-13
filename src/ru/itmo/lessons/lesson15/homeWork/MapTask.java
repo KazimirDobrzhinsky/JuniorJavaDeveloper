@@ -75,7 +75,7 @@ public class MapTask {
 
     }
 
-    public static List<String> getList(HashMap<String, String> firstTaskMap, String city) {
+    public static List<String> getList(Map<String, String> firstTaskMap, String city) {
         ArrayList<String> listOfLogins = new ArrayList<>();
         for (Map.Entry<String, String> pair : firstTaskMap.entrySet()) {
             if (pair.getValue().equalsIgnoreCase(city)) listOfLogins.add(pair.getKey());

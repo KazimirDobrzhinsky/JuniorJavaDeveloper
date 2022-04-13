@@ -6,13 +6,12 @@ public class MessageTask {
     public static void countEachPriority(List<Message> messageList) {
         // TODO:  Подсчитать количество сообщений для каждого приоритета
         //  Ответ в консоль
-        int[] count = new int[4];
-        int ord;
+        int[] count = new int[MessagePriority.values().length];
 
         for (Message message : messageList) {
-            ord = message.getPriority().ordinal();
-            count[ord]++;
+            count[message.getPriority().ordinal()]++;
         }
+
         System.out.println("Кол-во приоритетов: Low -" + count[0] + ", Medium - " + count[1] + ", High - " + count[2] + ", Urgent - " + count[3]);
         System.out.println();
     }
@@ -20,7 +19,7 @@ public class MessageTask {
     public static void countEachCode(List<Message> messageList) {
         // TODO: Подсчитать количество сообщений для каждого кода сообщения
         //  Ответ в консоль
-        int count1 = 0;
+        /*int count1 = 0;
         int count2 = 0;
         int count3 = 0;
         int count4 = 0;
@@ -29,23 +28,16 @@ public class MessageTask {
         int count7 = 0;
         int count8 = 0;
         int count9 = 0;
-        int count10 = 0;
+        int count10 = 0;*/
+
+        int[] counts = new int[10];
 
         for (Message message : messageList) {
-            if (message.getCode() == 1) count1 += 1;
-            if (message.getCode() == 2) count2 += 1;
-            if (message.getCode() == 3) count3 += 1;
-            if (message.getCode() == 4) count4 += 1;
-            if (message.getCode() == 5) count5 += 1;
-            if (message.getCode() == 6) count6 += 1;
-            if (message.getCode() == 7) count7 += 1;
-            if (message.getCode() == 8) count8 += 1;
-            if (message.getCode() == 9) count9 += 1;
-            if (message.getCode() == 10) count10 += 1;
+            counts[message.getCode()]++;
 
         }
-        System.out.println("Кол-во кодов: 1 - " + count1 + ", 2 - " + count2 + ", 3 - " +count3 + ", 4 - " +count4 + ", 5 - " +
-                count5 + ", 6 - " +count6 + ", 7 - " +count7 + ", 8 - " +count8 + ", 9 - " +count9 + ", 10 - " +count10);
+        //System.out.println("Кол-во кодов: 1 - " + count1 + ", 2 - " + count2 + ", 3 - " +count3 + ", 4 - " +count4 + ", 5 - " +
+        //        count5 + ", 6 - " +count6 + ", 7 - " +count7 + ", 8 - " +count8 + ", 9 - " +count9 + ", 10 - " +count10);
     }
 
     public static void uniqueMessageCount(List<Message> messageList) {
@@ -61,7 +53,6 @@ public class MessageTask {
         //  Например, было: [{URGENT, 4}, {HIGH, 9}, {LOW, 3}, {HIGH, 9}]
         //  на выходе: [{URGENT, 4}, {HIGH, 9}, {LOW, 3}]
         LinkedHashSet<Message> uniqueMessageList = new LinkedHashSet<>(messageList);
-        System.out.println(uniqueMessageList);
         messageList = new ArrayList<>(uniqueMessageList);
         return messageList;
     }
