@@ -12,7 +12,6 @@ public class Game implements Serializable {
     }
 
 
-
     public Stage getGameStage() {
         return gameStage;
     }
