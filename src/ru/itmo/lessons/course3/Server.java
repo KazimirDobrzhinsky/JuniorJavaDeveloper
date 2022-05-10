@@ -90,10 +90,12 @@ public class Server {
         public void run() {
             try {
                 while (true) {
-                    Message outputMessage = this.server.getInputMessages().take();
-                    for (Map.Entry<Integer, Connection> client : this.server.clients.entrySet()) {
-                        if (!client.getKey().equals(outputMessage.getServerId())) {
-                            client.getValue().sendMessage(outputMessage);
+                    if (this.server.clients.size() > 1) {
+                        Message outputMessage = this.server.getInputMessages().take();
+                        for (Map.Entry<Integer, Connection> client : this.server.clients.entrySet()) {
+                            if (!client.getKey().equals(outputMessage.getServerId())) {
+                                client.getValue().sendMessage(outputMessage);
+                            }
                         }
                     }
                 }
