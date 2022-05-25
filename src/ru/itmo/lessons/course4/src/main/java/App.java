@@ -16,9 +16,21 @@ public class App {
         valera.setName("Valera");
         valera.setAddress("SPB");
 
+        Climber ivan = new Climber();
+        ivan.setName("Ivan");
+        ivan.setAddress("SPB");
+
+        Climber nastia = new Climber();
+        nastia.setName("Nastia");
+        nastia.setAddress("SPB");
+
         Group group1 = new Group();
 
         group1.addClimber(andrey, valera);
+
+        Group group2 = new Group();
+
+        group2.addClimber(nastia, ivan);
 
         Mountain monBlanch = new Mountain();
 
@@ -28,6 +40,8 @@ public class App {
 
         group1.chooseMountain(monBlanch);
 
+        group2.chooseMountain(monBlanch);
+
         EntityManagerFactory factory =
                 Persistence.createEntityManagerFactory("Course 4");
 
@@ -36,7 +50,10 @@ public class App {
         manager.getTransaction().begin();
         manager.persist(andrey);
         manager.persist(valera);
+        manager.persist(ivan);
+        manager.persist(nastia);
         manager.persist(group1);
+        manager.persist(group2);
         manager.persist(monBlanch);
         manager.getTransaction().commit();
 
